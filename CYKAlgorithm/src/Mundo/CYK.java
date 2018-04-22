@@ -3,6 +3,11 @@ package Mundo;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+/**
+ * 
+ * @author garzuzo
+ *
+ */
 public class CYK {
 
 	private HashSet<String> variables;
