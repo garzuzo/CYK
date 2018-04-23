@@ -65,17 +65,23 @@ public class CYK {
 			ultimoSubconjunto += varAct;
 			if (i + 1 != arr.size())
 				ultimoSubconjunto += ",";
-			else
-				ultimoSubconjunto += "}";
+		
+				
 			if (varAct.equalsIgnoreCase("S"))
 				ret = true;
 		}
+		ultimoSubconjunto += "}";
+		
+		/**
+		 * Se imprime por consola la matriz resultante
+		 */
 		System.out.println("----------------------------------");
 		for (int i = 1; i < matriz.length; i++) {
 			for (int j = 1; j < matriz.length; j++) {
 				if(matriz[i][j]!=null)
-				System.out.println(matriz[i][j].toString());
+				System.out.print(matriz[i][j].toString());
 			}
+			System.out.println();
 		}
 		System.out.println("----------------------------------");
 		return ret;
@@ -217,7 +223,7 @@ public class CYK {
 		Production prodActual = new Production(variable, cuerpo);
 		variables.add(variable);
 		gramatica.add(prodActual);
-		System.out.println(variable + cuerpo.toString());
+	
 	}
 
 }

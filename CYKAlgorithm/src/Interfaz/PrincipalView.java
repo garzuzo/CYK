@@ -36,6 +36,7 @@ public class PrincipalView extends JFrame implements ActionListener {
 	public static final String VERIFICAR = "verificar";
 	public static final String AGREGAR = "agregar";
 
+	private int cont;
 	/**
 	 * listener agregar produccion jdialog
 	 */
@@ -43,7 +44,7 @@ public class PrincipalView extends JFrame implements ActionListener {
 
 	public PrincipalView() {
 		cyk = new CYK();
-		taGramatica = new TextArea("Aqui va su gramatica\n");
+		taGramatica = new TextArea("Aqui va su gramatica:\n");
 		taGramatica.setEditable(false);
 		butAgregarProduccion = new JButton("Agregar produccion");
 
@@ -94,13 +95,18 @@ public class PrincipalView extends JFrame implements ActionListener {
 
 			String msg = ret ? "w pertenece a L(G) ya que S pertenece a X(1,n)"
 					: "w no pertenece a L(G) ya que S no pertenece a X(1,n)";
-			msg+="\n"+cyk.getUltimoSubconjunto();
+			msg += "\nX(1,n)=" + cyk.getUltimoSubconjunto();
 			JOptionPane.showMessageDialog(this, msg);
 
 		} else if (evento.equals(AGREGAR)) {
 
-			String numProds = JOptionPane.showInputDialog("Indique cuantas producciones va a tener su variable");
-			agregarProduccion(Integer.parseInt(numProds));
+			String msg = "Indique cuantas producciones va a tener su variable \nej:S->AB|ABC|D tiene 3 producciones";
+			String numProds = JOptionPane.showInputDialog(msg);
+			try {
+				agregarProduccion(Integer.parseInt(numProds));
+			} catch (NumberFormatException nfe) {
+				JOptionPane.showMessageDialog(this, "Solo numeros");
+			}
 		} else if (evento.equals(ADD)) {
 			String variable = tVariable.getText();
 
@@ -147,6 +153,11 @@ public class PrincipalView extends JFrame implements ActionListener {
 	}
 
 	public void refrescarGramatica(String var, ArrayList<String> prods) {
+		if (cont == 0) {
+			taGramatica.setText("");
+			cont++;
+
+		}
 
 		StringBuilder sb = new StringBuilder();
 		sb.append(var + "->");

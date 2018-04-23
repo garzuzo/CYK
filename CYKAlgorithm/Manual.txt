@@ -1,0 +1,12 @@
+Creado por: Johnatan Garzón M.
+Escrito en Java.
+Instrucciones de uso:
+1)Para crear la gramática debe agregar producciones, para esto
+se unde en el boton "Agregar produccion".
+Debe ingresar el número de producciones que va a tener esa variable 
+(ej:S->AB|ABC|D tiene 3 producciones), luego se unde ok.
+se agregara en el primer campo de texto la variable,y en los siguientes 
+las producciones de dicha variable, y se agregan al undir el boton agregar produccion.
+Todas las producciones agregadas a la gramática se visualizaran en el area de texto.
+2)Al haber agregado todas las producciones se ingresara la cadena w en el campo de texto y se unde el boton "verificar cadena" para saber si es generada por la gramatica o no.
+
