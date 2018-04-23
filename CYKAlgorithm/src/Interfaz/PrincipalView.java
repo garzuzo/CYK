@@ -80,6 +80,7 @@ public class PrincipalView extends JFrame implements ActionListener {
 
 		pv.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		pv.setLocationRelativeTo(null);
+		pv.setTitle("Algoritmo CYK");
 	}
 
 	@Override
