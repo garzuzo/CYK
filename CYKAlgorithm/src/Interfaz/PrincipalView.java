@@ -1,4 +1,5 @@
 package Interfaz;
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.TextArea;
@@ -13,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import Mundo.CYK;
+
 /**
  * 
  * @author garzuzo
@@ -87,7 +89,13 @@ public class PrincipalView extends JFrame implements ActionListener {
 		if (evento.equals(VERIFICAR)) {
 
 			String w = txtCadena.getText();
-			cyk.cykAlgorithm(w);
+
+			boolean ret = cyk.cykAlgorithm(w);
+
+			String msg = ret ? "w pertenece a L(G) ya que S pertenece a X(1,n)"
+					: "w no pertenece a L(G) ya que S no pertenece a X(1,n)";
+			msg+="\n"+cyk.getUltimoSubconjunto();
+			JOptionPane.showMessageDialog(this, msg);
 
 		} else if (evento.equals(AGREGAR)) {
 
